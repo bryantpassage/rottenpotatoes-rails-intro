@@ -14,12 +14,20 @@ class MoviesController < ApplicationController
     else
       @ratings_to_show = params[:ratings].keys
     end
-    # @movies = Movie.with_ratings(params[:ratings].keys)
-    @movies = Movie.with_ratings(@ratings_to_show)
-    if params.has_key?(:sort) then
-      @movies = Movie.order(params[:sort])
-      @hilite = params[:sort]
+    
+    if params.has_key?(:sort) && params[:sort].length() > 0 then
+      @sort_by = params[:sort]
+    else
+      @sort_by = nil
     end
+    # @movies = Movie.with_ratings(params[:ratings].keys)
+    # @movies = Movie.with_ratings(@ratings_to_show)
+    # if params.has_key?(:sort) then
+    #   @sort_by = params[:sort]
+    #   @movies = Movie.order(@sort_by)
+    #   @hilite = params[:sort]
+    # end
+    @movies = Movie.get_movies(params, @ratings_to_show)
   end
 
   def new
