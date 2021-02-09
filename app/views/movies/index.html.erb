@@ -7,7 +7,7 @@
   Include:
   <% @all_ratings.each do |rating| %>
     <div class="form-check  form-check-inline">
-      <%= label_tag "ratings[#{rating}]", rating, class: 'form-check-label', style: 'margin-right:20px' %>
+      <%= label_tag "ratings[#{rating}]", rating, class: 'form-check-label', style: 'margin-right:5px' %>
       <%= check_box_tag "ratings[#{rating}]", "1",  @ratings_to_show.include?(rating), class: 'form-check-input' %>
     </div>
   <% end %>
