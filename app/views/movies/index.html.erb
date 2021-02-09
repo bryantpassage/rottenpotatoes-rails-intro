@@ -18,11 +18,11 @@
   <thead>
     <tr>
       <th>
-        <%= link_to 'Movie Title', movies_path(:sort => "title"), id: "title_header", class: class_string(hilite: (@hilite == "title")) + " text-primary" %>
+        <%= link_to 'Movie Title', movies_path(:sort => "title"), id: "title_header", class: ('hilite' if @hilite == "title") + " text-primary" %>
       </th>
       <th>Rating</th>
       <th>
-        <%= link_to 'Release Date', movies_path(:sort => "release_date"), id: "release_date_header", class: class_string(hilite:(@hilite == "release_date")) + " text-primary" %>
+        <%= link_to 'Release Date', movies_path(:sort => "release_date"), id: "release_date_header", class: ('hilite' if @hilite == "release_date") + " text-primary" %>
       </th>
       <th>More Info</th>
     </tr>
