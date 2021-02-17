@@ -18,20 +18,19 @@ class Movie < ActiveRecord::Base
     end
     
     # show movies based on sort list and ratings
-    def self.get_movies(params, ratings_list)
-        if params.has_key?(:sort) && params[:sort] != nil && params[:sort] > "" then
-            if ratings_list.length() > 0 then
-                return self.where(rating: ratings_list).order(params[:sort])
+    def self.get_movies(sort, ratings_list)
+        if sort != nil
+            if ratings_list.length() > 0
+                return self.where(rating: ratings_list).order(sort)
             else
-                return self.order(params[:sort])
+                return self.order(sort)
             end
         else
-            if ratings_list.length() > 0 then
+            if ratings_list.length() > 0 
                 return self.where(rating: ratings_list)
             else
                 return self.all
             end
         end
     end
-
 end

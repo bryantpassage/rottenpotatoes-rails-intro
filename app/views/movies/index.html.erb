@@ -13,6 +13,7 @@
   <% end %>
   <!-- added hidden field tag to keep :sort as a parameter-->
   <%= hidden_field_tag :sort, @sort_by %>
+  <%= hidden_field_tag :home, 1 %>
   <%= submit_tag 'Refresh', id: 'ratings_submit', class: 'btn btn-primary' %>
 <% end %>
 
@@ -20,11 +21,11 @@
   <thead>
     <tr>
       <th class=<%= 'hilite' if @sort_by == "title" %>>
-        <%= link_to 'Movie Title', movies_path(:sort => "title", :ratings => Hash[@ratings_to_show.map{|val| [val,1]}]), id: "title_header" %>
+        <%= link_to 'Movie Title', movies_path(sort: "title", ratings: Hash[@ratings_to_show.map{|val| [val,1]}], home: 1), id: "title_header" %>
       </th>
       <th>Rating</th>
       <th class=<%= 'hilite' if @sort_by == "release_date" %>>
-        <%= link_to 'Release Date', movies_path(:sort => "release_date", :ratings => Hash[@ratings_to_show.map{|val| [val,1]}]), id: "release_date_header"%>
+        <%= link_to 'Release Date', movies_path(sort: "release_date", ratings: Hash[@ratings_to_show.map{|val| [val,1]}], home: 1), id: "release_date_header"%>
       </th>
       <th>More Info</th>
     </tr>
