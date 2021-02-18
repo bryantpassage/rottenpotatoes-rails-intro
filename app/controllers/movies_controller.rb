@@ -9,6 +9,10 @@ class MoviesController < ApplicationController
   def index
     @all_ratings = Movie.all_ratings
     
+    if !params.include?(:back) && !params.include?(:home)
+      session.clear
+    end
+    
     if !params.include?(:ratings) && !params.has_key?(:home) then
       if session.has_key?(:ratings) then
         @ratings_to_show = session[:ratings]
