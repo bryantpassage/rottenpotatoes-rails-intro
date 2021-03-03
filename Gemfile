@@ -28,6 +28,13 @@ group :development, :test do
 
   gem 'rspec-rails'
   gem 'guard-rspec'
+  
+
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem 'pry'
+  gem 'pry-byebug'
 
   # Use sqlite3 as the database for Active Record
   # gem 'pg', '~> 0.21'
@@ -35,6 +42,9 @@ group :development, :test do
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  
+  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails-training-wheels'
 end
 
 group :production do
